@@ -1,3 +1,25 @@
+enum RadioMessage {
+    message1 = 49434
+}
+radio.onReceivedNumber(function (receivedNumber) {
+	
+})
+input.onButtonPressed(Button.A, function () {
+    led.toggle(0, 2)
+})
+function Pause () {
+    basic.showLeds(`
+        . . . . .
+        . # . # .
+        . # . # .
+        . # . # .
+        . . . . .
+        `)
+}
+input.onButtonPressed(Button.B, function () {
+    radio.sendNumber(4)
+})
+radio.setGroup(1)
 basic.forever(function () {
-    led.plot(1, 1)
+	
 })
