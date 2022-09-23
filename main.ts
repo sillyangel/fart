@@ -1,26 +1,29 @@
 enum RadioMessage {
     message1 = 49434
 }
-radio.onReceivedNumber(function (receivedNumber) {
-    led.toggle(2, 3)
-    basic.showString("#!")
-})
 input.onButtonPressed(Button.A, function () {
     led.toggle(0, 2)
+    basic.pause(200)
+    led.toggle(1, 2)
+    basic.pause(200)
+    led.toggle(2, 2)
+    basic.pause(200)
+    led.toggle(3, 2)
+    basic.pause(200)
+    led.toggle(4, 2)
+    basic.pause(200)
+    led.toggle(0, 2)
+    basic.pause(200)
+    led.toggle(1, 2)
+    basic.pause(200)
+    led.toggle(2, 2)
+    basic.pause(200)
+    led.toggle(3, 2)
+    basic.pause(200)
+    led.toggle(4, 2)
 })
-function Pause () {
-    basic.showLeds(`
-        . . . . .
-        . # . # .
-        . # . # .
-        . # . # .
-        . . . . .
-        `)
-}
 input.onButtonPressed(Button.B, function () {
-    radio.sendNumber(4)
-})
-radio.setGroup(1)
-basic.forever(function () {
-	
+    led.toggle(4, 2)
+    basic.pause(200)
+    led.toggle(4, 2)
 })
