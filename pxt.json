@@ -1,16 +1,17 @@
 {
-    "name": "fart",
+    "name": "somethingig",
     "version": "0.1.0",
     "description": "",
     "dependencies": {
         "core": "*",
         "microphone": "*",
-        "microbit-pxt-blehid": "github:bsiever/microbit-pxt-blehid#v0.0.23"
+        "radio": "*"
     },
     "files": [
         "main.blocks",
         "main.ts",
-        "README.md"
+        "README.md",
+        "main.py"
     ],
     "testFiles": [
         "test.ts"
@@ -22,5 +23,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "tsprj"
+    "preferredEditor": "blocksprj"
 }
