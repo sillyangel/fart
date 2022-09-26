@@ -11,7 +11,8 @@
     },
     "files.associations": {
         "*.blocks": "html",
-        "*.jres": "json"
+        "*.jres": "json",
+        "*.hex": "hex"
     },
     "search.exclude": {
         "**/built": true,
