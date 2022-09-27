@@ -5,9 +5,8 @@ radio.onReceivedNumber(function (receivedNumber) {
 function privatekey (num: number) {
     if (num == 1234) {
         radio.sendString("right code")
-        serial.writeLine("someone got the private key lol prob dom")
     } else {
-    	serial.writeLine("Someone tryied the priv key but failed lol")
+        serial.writeLine("Person is near by : " + radio.receivedPacket(RadioPacketProperty.SignalStrength))
     }
 }
 function loadingscreen () {
@@ -51,4 +50,3 @@ function publickey (num: number) {
 basic.forever(function () {
     radio.setGroup(1)
 })
-
