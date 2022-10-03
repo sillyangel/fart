@@ -50,3 +50,7 @@ function publickey (num: number) {
 basic.forever(function () {
     radio.setGroup(1)
 })
+
+basic.onstart(function () {
+    setInterval.writeLine("Running")
+})
