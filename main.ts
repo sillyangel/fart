@@ -1,12 +1,16 @@
 radio.onReceivedNumber(function (receivedNumber) {
-    basic.showString("" + (receivedNumber))
     serial.writeLine("" + (receivedNumber))
+    privatekey(receivedNumber)
 })
 function privatekey (num: number) {
     if (num == 1234) {
-        radio.sendString("right code")
+        serial.writeLine("PS :" + radio.receivedPacket(RadioPacketProperty.SignalStrength))
+        music.startMelody(music.builtInMelody(Melodies.Entertainer), MelodyOptions.OnceInBackground)
+        BL()
     } else {
-        serial.writeLine("Person is near by : " + radio.receivedPacket(RadioPacketProperty.SignalStrength))
+        music.setBuiltInSpeakerEnabled(true)
+        music.setVolume(47)
+        music.startMelody(music.builtInMelody(Melodies.Blues), MelodyOptions.OnceInBackground)
     }
 }
 function loadingscreen () {
@@ -30,9 +34,16 @@ function loadingscreen () {
     basic.pause(200)
     led.toggle(4, 0)
 }
+input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
+    radio.sendString("fart")
+})
 // input
 input.onButtonPressed(Button.A, function () {
     loadingscreen()
+})
+radio.onReceivedString(function (receivedString) {
+    serial.writeLine(receivedString)
+    basic.showString(receivedString)
 })
 input.onButtonPressed(Button.B, function () {
     led.toggle(4, 2)
@@ -44,13 +55,27 @@ input.onGesture(Gesture.Shake, function () {
     basic.pause(200)
     led.toggle(1, 3)
 })
+function BL () {
+    for (let index = 0; index < 4; index++) {
+        led.toggle(4, 4)
+        basic.pause(500)
+        led.toggle(4, 4)
+        basic.pause(500)
+    }
+}
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    radio.sendNumber(1234)
+})
 function publickey (num: number) {
     serial.writeLine("" + (num))
 }
+let nukecodes = [
+"1",
+"2",
+"3",
+"4",
+"5"
+]
 basic.forever(function () {
     radio.setGroup(1)
-})
-
-basic.onstart(function () {
-    setInterval.writeLine("Running")
 })
